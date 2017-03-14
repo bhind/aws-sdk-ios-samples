@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var navigationController: UINavigationController?
     var storyboard: UIStoryboard?
     var rememberDeviceCompletionSource: AWSTaskCompletionSource<NSNumber>?
-    
+    var passwordRequiredViewController: NewPasswordRequiredViewController?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -141,6 +141,30 @@ extension AppDelegate: AWSCognitoIdentityInteractiveAuthenticationDelegate {
     
     func startRememberDevice() -> AWSCognitoIdentityRememberDevice {
         return self
+    }
+
+    func startNewPasswordRequired() -> AWSCognitoIdentityNewPasswordRequired {
+        if(self.passwordRequiredViewController == nil){
+            self.passwordRequiredViewController = NewPasswordRequiredViewController()
+            self.passwordRequiredViewController?.modalPresentationStyle = UIModalPresentationStyle.popover
+        }
+        DispatchQueue.main.async {
+            //if new password required view isn't already visible, display it
+            if (!(self.passwordRequiredViewController!.isViewLoaded && (self.passwordRequiredViewController!.view.window != nil))) {
+                //display mfa as popover on current view controller
+                let vc: UIViewController = self.window!.rootViewController!;
+                vc.present(self.passwordRequiredViewController!, animated: true, completion: nil)
+                
+                //configure popover vc
+                let presentationController: UIPopoverPresentationController =
+                    self.passwordRequiredViewController!.popoverPresentationController!
+                presentationController.permittedArrowDirections = [.left, .right]
+                presentationController.sourceView = vc.view;
+                presentationController.sourceRect = vc.view.bounds;
+            }
+        }
+        
+        return self.passwordRequiredViewController!
     }
 }
 

@@ -23,6 +23,8 @@
 		17FC2FA31E25A5D000174015 /* ConfirmForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC2FA21E25A5D000174015 /* ConfirmForgotPasswordViewController.swift */; };
 		17FC2FA51E25A77600174015 /* UserDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC2FA41E25A77600174015 /* UserDetailTableViewController.swift */; };
 		17FC2FA71E25A9A200174015 /* DevicesDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC2FA61E25A9A200174015 /* DevicesDetailTableViewController.swift */; };
+		9E1527161E77D915007F3483 /* NewPasswordRequiredView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E1527141E77D915007F3483 /* NewPasswordRequiredView.xib */; };
+		9E1527171E77D915007F3483 /* NewPasswordRequiredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1527151E77D915007F3483 /* NewPasswordRequiredViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		17FC2FA41E25A77600174015 /* UserDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailTableViewController.swift; sourceTree = "<group>"; };
 		17FC2FA61E25A9A200174015 /* DevicesDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesDetailTableViewController.swift; sourceTree = "<group>"; };
 		2D8C9B52DE415302BA7B152A /* Pods-CognitoYourUserPoolsSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitoYourUserPoolsSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CognitoYourUserPoolsSample/Pods-CognitoYourUserPoolsSample.release.xcconfig"; sourceTree = "<group>"; };
+		9E1527141E77D915007F3483 /* NewPasswordRequiredView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewPasswordRequiredView.xib; sourceTree = "<group>"; };
+		9E1527151E77D915007F3483 /* NewPasswordRequiredViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordRequiredViewController.swift; sourceTree = "<group>"; };
 		AB8F26771F0FF8105FC402DD /* Pods_CognitoYourUserPoolsSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CognitoYourUserPoolsSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBEB9BB4F88788184F7DD583 /* Pods-CognitoYourUserPoolsSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitoYourUserPoolsSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CognitoYourUserPoolsSample/Pods-CognitoYourUserPoolsSample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +85,8 @@
 		17FC2F7E1E258FC500174015 /* CognitoYourUserPoolsSample */ = {
 			isa = PBXGroup;
 			children = (
+				9E1527141E77D915007F3483 /* NewPasswordRequiredView.xib */,
+				9E1527151E77D915007F3483 /* NewPasswordRequiredViewController.swift */,
 				17FC2F941E2590D800174015 /* MFAViewController.xib */,
 				17FC2F7F1E258FC500174015 /* AppDelegate.swift */,
 				17FC2F831E258FC500174015 /* Main.storyboard */,
@@ -193,6 +199,7 @@
 				17FC2F921E25908D00174015 /* CognitoLogo.png in Resources */,
 				17FC2F851E258FC500174015 /* Main.storyboard in Resources */,
 				17FC2F951E2590D800174015 /* MFAViewController.xib in Resources */,
+				9E1527161E77D915007F3483 /* NewPasswordRequiredView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,7 +218,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		9214D2BD8818DE69A24072DD /* [CP] Copy Pods Resources */ = {
@@ -257,6 +264,7 @@
 				17FC2F9F1E259F3200174015 /* ConfirmSignUpViewController.swift in Sources */,
 				17FC2F9B1E259E0500174015 /* Constants.swift in Sources */,
 				17FC2F991E25940900174015 /* SignInViewController.swift in Sources */,
+				9E1527171E77D915007F3483 /* NewPasswordRequiredViewController.swift in Sources */,
 				17FC2F971E25928900174015 /* MFAViewController.swift in Sources */,
 				17FC2FA71E25A9A200174015 /* DevicesDetailTableViewController.swift in Sources */,
 				17FC2F801E258FC500174015 /* AppDelegate.swift in Sources */,
